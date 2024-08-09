@@ -1,0 +1,65 @@
+
+Tufts CS 131: Artificial Intelligence
+Homework 1: Behavior Trees
+By Zeno Marquis
+With base code from Fabrizio Santini
+
+Project:
+Robotic vacuum cleaner implementation
+
+Overview:
+This program implements an automated robotic vacuum cleaner using a behavior 
+tree. The robot performs different kinds of cleaning based on user input
+and sensor data. The robot also performs a charging sequence when necessary.
+
+Assumptions:
+The robot operates in a virtual environment with randomly stimulated sensors.
+The only commands are through terminal input and the program supports one user
+at a time. The program terminates only when asked to by the user. The robot
+charges at a constant rate when docking.
+
+Usage:
+Use the command "make" to compile the executable, and "./Behavior_trees" to run
+it. The program takes user input through the terminal as it is running, no
+additional command line arguments are needed to begin running the program.
+
+Files in my partial implementation:
+
+    Tasks:
+    always_fail.hpp - returns a failed state
+    clean_floor.hpp - cleans the floor
+    clean_spot.hpp - cleans a particular spot
+    do_nothing.hpp - returns a success state
+    dock.hpp - holds cleaning and charges robot
+    done_general.hpp - records that general cleaning is done
+    done_spot.hpp - records that spot cleaning is done
+    find_home.hpp - finds a path home
+    go_home.hpp - brings the robot to its dock
+
+    Decorator:
+    until_fails.hpp - executes the child node until it fails
+
+    Conditions:
+    dusty_spot.hpp - checks if a spot is dusty
+    general_cleaning.hpp - checks if general cleaning has been requested
+    spot_cleaning.hpp - checks if spot cleaning has been requested
+
+    Composites:
+    priority.hpp - runs children in specified order
+    sequence.hpp - sequence composite
+
+    Tree structure:
+    behavior_tree.hpp - creates tree structure
+
+    Main:
+    main.cpp
+
+    Makefile - builds the program
+
+
+Testing:
+A number of test input files are available in the directory "testfiles." These
+files aim to represent the full range of potential user input to the program.
+
+
+
